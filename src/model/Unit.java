@@ -17,4 +17,11 @@ public class Unit {
         return unit;
     }
 
+    @Override
+    public String toString() {
+        return "Unit{" +
+                "id=" + id +
+                ", unit='" + unit + '\'' +
+                '}';
+    }
 }
