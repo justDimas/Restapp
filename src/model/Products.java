@@ -7,6 +7,14 @@ public class Products {
     private int unit;
     private double pricePerUnit;
 
+    public Products(String products, double quantity, int unit, double pricePerUnit) {
+        id = 0;
+        this.products = products;
+        this.quantity = quantity;
+        this.unit = unit;
+        this.pricePerUnit = pricePerUnit;
+    }
+
     public Products(int id, String products, double quantity, int unit, double pricePerUnit) {
         this.id = id;
         this.products = products;

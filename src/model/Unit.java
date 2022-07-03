@@ -2,8 +2,8 @@ package model;
 
 public class Unit {
     private int id;
-
     private String  unit;
+
     public Unit(int id, String unit) {
         this.id = id;
         this.unit = unit;

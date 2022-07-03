@@ -3,22 +3,22 @@ package db;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class TableDB {
     private Config cfg;
-    private Connection connection;
+    protected Connection connection;
+    protected PreparedStatement statement;
 
-    public TableDB() throws IOException, SQLException {
+    public TableDB() throws IOException, ClassNotFoundException {
         cfg = new Config();
+    }
+
+    protected void tryExec(String sqlExpr) throws SQLException {
         connection = DriverManager.getConnection(cfg.getUrl(), cfg.getLogin(), cfg.getPassword());
-    }
-
-    public Connection getConnection() {
-        return connection;
-    }
-
-    public void close() throws SQLException {
+        statement = connection.prepareStatement(sqlExpr);
+        statement.execute();
         connection.close();
     }
 }
